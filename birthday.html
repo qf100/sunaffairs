@@ -1,0 +1,74 @@
+<!doctype html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>生日祝福</title>
+		<link rel="stylesheet" type="text/css" href="static/css/app.css" />
+	</head>
+
+	<body>
+		<div class="details-title">
+			<h1>祝贺XXX通知入党XX周年</h1>
+			<p>
+				<span class="fl">2017-04-04 10:34:23</span>
+				<span class="fr">
+					<img src="static/images/icon/icon_browse.png" alt="" />
+					<em class="browsenum">1121</em>
+				</span>
+			</p>
+		</div>
+		
+		<div class="details-content container">
+			<img src="static/images/demo/birthday.png"/>
+			祝福语：地农业发展情况，老干部们被革命先烈决不惧困难的勇气所震撼。感受到革命先烈保家卫国的高尚精神，和农业发展带动人民生活水平的重要性。
+
+		</div>
+		
+		<div class="zhufu-btn">
+			<img src="static/images/icon/icon_birthday.png" alt="" />	
+			<span>我要祝福</span>
+		</div>
+		
+		<div class="footer-page">
+			<p>上一篇：<a href="">哈哈哈哈啊哈哈哈</a></p>
+			<p>下一篇：<a href="">黑恶黑恶hi诶嘿嘿额和hi</a></p>
+			
+		</div>
+		
+		<!--弹窗提示-->
+		<div class="dialog dialog-fail">
+			<img src="static/images/icon/icon_fail.png"/>
+			<span>祝福失败</span>
+		</div>
+		
+		<div class="dialog dialog-success">
+			<img src="static/images/icon/icon_success.png"/>
+			<span>祝福成功</span>
+		</div>
+		
+		<script src="static/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="static/js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 点击提交按钮
+			$('.zhufu-btn').click(function(){
+				$(this).children('span').text('您已祝福');
+				$(this).css('background','#E0E0E0');
+				$(this).children('img').attr('src','static/images/icon/icon_birthday2.png')
+				
+				// 提交成功
+				$('.dialog-success').show();
+				setTimeout(function(){
+					$('.dialog-success').hide();
+				},2000)
+				
+				// 提交失败
+				//$('.dialog-fail').show();
+				//setTimeout(function(){
+				//	$('.dialog-fail').hide();
+				//},2000)
+			})
+		</script>
+	</body>
+</html>

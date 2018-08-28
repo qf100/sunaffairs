@@ -1,0 +1,26 @@
+.section input {
+	width:26.25rem;
+	height:1.25rem;
+	line-height: 1.25rem;
+	padding: .5rem;
+	font-size:1.25rem;
+	border:none;
+	color:#333;
+}
+textarea::-webkit-input-placeholder,
+input::-webkit-input-placeholder {
+	color:#ccc;
+}
+.section textarea {
+	width:25.25rem;
+	height:8.333333rem;
+	padding: .5rem;
+	font-size: 1.25rem;
+	color:#333;
+	border:none;
+}
+.remind p {
+	font-size: 1.166666rem;
+	line-height: 2rem;
+	color: #F0405D;
+}
