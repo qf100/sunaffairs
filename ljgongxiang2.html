@@ -1,0 +1,114 @@
+<!doctype html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>铜元局街道党工委</title>
+		<link rel="stylesheet" type="text/css" href="static/css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="static/css/app.css" />
+	</head>
+
+	<body class="bg-edf">
+		<div class="top-slider">
+			<ul class="top-slider-imgbox">
+				<li>
+					<a href="javascript:;">
+						<img src="static/images/demo/banner1.png" alt="" />
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="static/images/demo/banner2.png" alt="" />
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<img src="static/images/demo/banner3.png" alt="" />
+					</a>
+				</li>
+			</ul>
+			
+			<div class="top-slider-num">
+				<span><em class="current-num"></em>/<em class="all-num"></em></span>
+			</div>
+			
+			
+		</div>
+		<div class="go-that">
+			<a href="javascript:;">
+				<img src="static/images/icon/icon_gothat.png"/>
+				<span>去这里</span>
+			</a>
+		</div>
+		
+		<h2 class="section-title">街道简介</h2>
+		<div class="section-wrap">
+			<div class="secttion-content">
+				<p class="c4287FE">服务时间：8:00-17:00</p>
+				<div>
+					激情与活力也是我们总支最大的特征，党总支班子团结、廉洁
+				、务实、创新，平时注重对党员的管理、教育和培训，能严格
+				较主集中制...
+				</div>
+				
+			</div>
+			<div class="section-bottom">
+				<div class="address fl">
+					<img src="static/images/icon/icon_address.png"/>
+					<span>重庆市金开大道101号</span>
+				</div>
+				<div class="tel fr">
+					<a href="tel:123456"><img src="static/images/icon/icon_tel2.png"/></a>
+				</div>
+			</div>
+		</div>
+		
+		
+		<h2 class="section-title">关联微信号</h2>
+		<div class="bg-fff">
+			
+			<ul class="news-list ">	
+				<li class="news-list-item">
+					<a href="details.html">
+						<div class="fl news-img">
+							<img src="static/images/demo/banner2.png" alt="" />
+						</div>
+						<div class="fl list-item-titlea">
+							<h3>注意!五一节会员活动来了感谢新老用户IphoneX大放送!</h3>
+							<p>发布：<span class="post-time">3天前</span></p>
+						</div>	
+					</a>
+				</li>
+				<li class="news-list-item">
+					<a href="details.html">
+						<div class="fl news-img">
+							<img src="static/images/demo/banner2.png" alt="" />
+						</div>
+						<div class="fl list-item-titlea">
+							<h3>注意!五一节会员活动来了感谢新老用户IphoneX大放送!</h3>
+							<p>发布：<span class="post-time">3天前</span></p>
+						</div>	
+					</a>
+				</li>
+			</ul>
+		</div>
+		
+		
+		<script src="static/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="static/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="static/js/slider.js"></script>
+		<script type="text/javascript">
+				// 轮播调用
+			$('.top-slider-imgbox').each(function(){
+				var imgbox = $(this)[0];
+				var li = $(this).children('li');
+				
+				var currentNum = $('.current-num');
+				var allNum = $('.all-num');
+				console.log(currentNum,allNum)
+				slider( imgbox, li,currentNum,allNum)
+			})
+		</script>
+	</body>
+</html>

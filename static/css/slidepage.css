@@ -1,0 +1,68 @@
+#nav {
+	height: 2.916666rem;
+	/*background: #007AFF;*/
+	line-height: 2.916666rem;
+	border-bottom: 0.041666rem solid #D8DBE6;
+}
+
+#nav .swiper-slide span {
+	margin: 0 5px;
+	text-align: center;
+	display: block;
+	line-height: 2.916666rem;
+	font-size: 1.25rem;
+	color: #999;
+}
+
+#nav .bar {
+	width: 1.166666rem;
+	height: 0.25rem;
+	border-radius: 0.125rem;
+	position: absolute;
+	bottom: 0px;
+}
+
+#nav .bar .color {
+	width: 1.166666rem;
+	margin: 0 auto;
+	height: 0.25rem;
+	border-radius: 0.125rem;
+	background: #38ADFF;
+}
+
+.banner img {
+	width: 100%;
+	display: block;
+}
+
+.banner .swiper-pagination {
+	left: auto;
+	right: 7px;
+	bottom: 7px;
+	width: auto;
+	padding: 2px 7px;
+	border-radius: 10px;
+	color: #fff;
+	background: rgba(0, 0, 0, .3);
+}
+
+#page {
+	margin-top: 6.25rem;
+}
+
+#page {
+	margin-bottom: 50px;
+	height: 100%;
+}
+
+#page .slidepage {
+	height: 100%;
+}
+
+.scroll {
+	height: 100%;
+}
+
+.slidescroll {
+	height: auto;
+}

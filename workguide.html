@@ -5,12 +5,76 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>办事指南</title>
-		<link rel="stylesheet" type="text/css" href="static/css/common.css"/>
-		<link rel="stylesheet" type="text/css" href="static/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="static/css/common.css" />
 	</head>
+
 	<body>
-		<div class="container">
-			
+		
+		
+		<div class="zuzhi-list">
+			<div class="zuzhi-item">
+				<div class="zuzhi-list-item parent">
+					<div class="fl icon-zuzhi">
+						<img src="static/images/icon/icon_zuhi.png"/>
+					</div>
+					<div class="fr">
+						<a href="javascript:;" class="name">职能部门</a>
+						<a href="javascript:;" class="icon-open icon-arrow"></a>
+					</div>
+				</div>
+				<div class="zuzhi-list-item children">
+					<div class="fl icon-zuzhi2">
+						<img src="static/images/icon/icon_zuzhi2.png"/>
+					</div>
+					<div class="fr">
+						<a href="dangzhibu.html" class="name">财务部</a>
+						<a href="javascript:;" class="icon-goon"></a>
+						<a href="tel:123456" class="icon-phone"></a>
+					</div>
+				</div>
+				<div class="zuzhi-list-item children">
+					<div class="fl icon-zuzhi2">
+						<img src="static/images/icon/icon_zuzhi2.png"/>
+					</div>
+					<div class="fr">
+						<a href="dangzhibu.html" class="name">规划部</a>
+						<a href="javascript:;" class="icon-goon"></a>
+						<a href="tel:123456" class="icon-phone"></a>
+					</div>
+				</div>
+			</div>
+			<div class="zuzhi-item">
+				<div class="zuzhi-list-item parent">
+					<div class="fl icon-zuzhi">
+						<img src="static/images/icon/icon_zuhi.png"/>
+					</div>
+					<div class="fr">
+						<a href="javascrip:;" class="name">管辖社区</a>
+						<a href="javascript:;" class="icon-open icon-arrow"></a>
+					
+					</div>
+				</div>
+				<div class="zuzhi-list-item children">
+					<div class="fl icon-zuzhi2">
+						<img src="static/images/icon/icon_zuzhi2.png"/>
+					</div>
+					<div class="fr">
+						<a href="dangzhibu.html" class="name">社区居委会1</a>
+						<a href="javascript:;" class="icon-goon"></a>
+						<a href="tel:123456" class="icon-phone"></a>
+					</div>
+				</div>
+				<div class="zuzhi-list-item children">
+					<div class="fl icon-zuzhi2">
+						<img src="static/images/icon/icon_zuzhi2.png"/>
+					</div>
+					<div class="fr">
+						<a href="dangzhibu.html" class="name">社区居委会2</a>
+						<a href="javascript:;" class="icon-goon"></a>
+						<a href="tel:123456" class="icon-phone"></a>
+					</div>
+				</div>
+			</div>
 		</div>
 		
 		
@@ -18,9 +82,21 @@
 		<script src="static/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="static/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			// 列表收缩折叠
+			var on = true;
+			$('.parent').click(function(){
+				if(on){
+					$(this).find('.icon-open').addClass('icon-up').removeClass('icon-arrow');
+					$(this).siblings().css('display','block');
+					$(this).parent().siblings().children('.children').css('display','none');
+				}else{
+					$(this).find('.icon-open').addClass('icon-arrow').removeClass('icon-up');
+					$(this).siblings().css('display','none');
+				}
+				on = !on;
+			})
 			
 			
-		
 		</script>
 	</body>
 </html>
