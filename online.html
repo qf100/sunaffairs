@@ -1,0 +1,230 @@
+<!doctype html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>在线服务</title>
+		<link rel="stylesheet" type="text/css" href="static/css/common.css" />
+	</head>
+
+	<body>
+		
+		<div class="top-search">
+				<div class="search-wrap">
+					<input type="text" placeholder="搜索您要办理的事项" />
+					<img src="static/images/icon/icon_search.png" alt="" />
+				</div>
+				<a href="javascript:;" class="search-btn">搜索</a>
+			</div>
+		
+		
+		<!--筛选条件-->
+		<div class="mask"></div>
+		<div class="filter clearfix">
+			<ul class="filter-btn">
+				<li>
+					<span>区域</span>
+					<em>
+						<img src="static/images/icon/icon_down.png"/>
+					</em>
+				</li>
+				<li>
+					<span>部门</span>
+					<em>
+						<img src="static/images/icon/icon_down.png"/>
+					</em>
+				</li>
+				<li>
+					<span>事项类别</span>
+					<em>
+						<img src="static/images/icon/icon_down.png"/>
+					</em>
+				</li>
+				
+			</ul>
+
+			<div class="filter-condition">
+
+				<ul class="filter-condition-item" id="years">
+					<li data-value="0" data-type="年份" class="active">全部</li>
+					<!--<li data-value="1">2018年</li>
+					<li data-value="2">2017年</li>
+					<li data-value="3">2016年</li>
+					<li data-value="4">2015年</li>
+					<li data-value="5">2014年</li>-->
+				</ul>
+
+				<ul class="filter-condition-item" id="months">
+					<li data-value="0" data-type="月份" class="active">全部</li>
+					<!--<li data-value="1">1月</li>
+					<li data-value="2">2月</li>
+					<li data-value="3">3月</li>
+					<li data-value="4">4月</li>
+					<li data-value="5">5月</li>
+					<li data-value="6">6月</li>
+					<li data-value="7">7月</li>
+					<li data-value="8">8月</li>
+					<li data-value="9">9月</li>
+					<li data-value="10">10月</li>
+					<li data-value="11">11月</li>
+					<li data-value="12">12月</li>-->
+				</ul>
+
+				<ul class="filter-condition-item">
+					<li data-value="0" data-type="缴纳状态" class="active">全部</li>
+					<li data-value="1">已缴纳</li>
+					<li data-value="2">未缴纳</li>
+				</ul>
+
+				
+			</div>
+		</div>
+
+		<div class="service-list">
+			<div class="service-item">
+				<a href="">
+					<em class="cF0405D">行政许可</em>
+					<h2>户口迁移申报登记</h2>
+					<p>事项编码:520222B0U0232957453-001 </p>
+					<p>本事项为原件预审事项，若您dddddd通过网上申请，最多到现场2次即可办结 </p>
+				</a>
+			</div>
+			<div class="service-item">
+				<a href="">
+					<em class="c38ADFF">公共服务</em>
+					<h2>户口迁移申报登记</h2>
+					<p>事项编码:520222B0U0232957453-001 </p>
+					<p>本事项为原件预审事项，若您通过网上申请，最多到现场2次即可办结 </p>
+				</a>
+			</div>
+			<div class="service-item">
+				<a href="">
+					<em class="c38ADFF">便民服务</em>
+					<h2>户口迁移申报登记</h2>
+					<p>事项编码:520222B0U0232957453-001 </p>
+					<p>本事项为原件预审事项，若您通过网上申请，最多到现场2次即可办结 </p>
+				</a>
+			</div>
+		</div>
+
+		<div class="footer-btn">
+			<a href="javascript:;" class="bg38a">在线提交</a>
+		</div>
+		
+
+		<script src="static/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="static/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 筛选条件
+			// 最近五年
+			var year = new Date().getFullYear();
+			var yearsStr = '';
+			for(var i=1;i<=5;i++){
+				yearsStr += '<li data-value="'+i+'">'+year+'年</li>'
+				year--;
+			}
+			$('#years').append(yearsStr);
+			
+			// 月份
+			var monthsStr = '';
+			for(var i=1;i<=12;i++){
+				monthsStr += '<li data-value="'+i+'">'+i+'月</li>'
+			}
+			$('#months').append(monthsStr);
+			
+			
+			
+			var index = 0;
+			$('.filter-btn li').each(function() {
+				var on = true;
+				$(this).on('click', function() {
+					var that = $(this).children('em');
+					index = $(this).index();
+					$(this).addClass('active').siblings().removeClass('active');
+					
+					that.children('img').attr('src','static/images/icon/icon_up.png');
+					that.parents().siblings().children('em').children('img').attr('src','static/images/icon/icon_down.png');
+					
+					if(on) {
+						$('.mask').show();
+						$('.filter-condition').slideDown('fast');
+						$('.filter-condition-item').eq(index).slideDown('fast').siblings().slideUp('fast');
+					} else {
+						$('.mask').hide();
+						$('.filter-condition').slideUp('fast');
+					}
+					on = !on;
+				});
+			})
+
+			$('.filter-condition-item li').each(function() {
+				$(this).bind('click', function() {
+					console.log($(this).attr('data-value'));
+					var selectValue = $(this).attr('data-value');
+
+					$(this).addClass('active').siblings().removeClass('active');
+					$('.filter-condition').slideUp('fast');
+					if(selectValue > 0) {
+						$('.filter-btn li').eq(index).children('span').text($(this).text())
+					} else {
+						$('.filter-btn li').eq(index).children('span').text($(this).attr('data-type'))
+					}
+					$('.mask').hide();
+				})
+			})
+
+			$('.mask').bind('click', function() {
+				$(this).hide();
+				$('.filter-condition-item').slideUp('fast');
+			})
+
+			// 全选
+			var on2 = true;
+			$('.icon-all').on('click', function() {
+				if(on2) {
+					$(this).children('img').attr('src', 'static/images/icon/icon_all2.png');
+					$('.dangfei-list-item').addClass('active').attr('data-selected', true);
+
+				} else {
+					$(this).children('img').attr('src', 'static/images/icon/icon_all1.png');
+					$('.dangfei-list-item').removeClass('active').attr('data-selected', false);
+
+				}
+				on2 = !on2;
+			})
+
+			// 单选
+			var selected = []
+			$('.dangfei-list-item').each(function() {
+				var on = true;
+				$(this).click(function() {
+					if(on) {
+						$(this).attr('data-selected', true).addClass('active');
+
+					} else {
+						$(this).removeClass('active').attr('data-selected', false);
+
+					}
+					on = !on;
+					//isAllFn()
+					console.log($(this).attr('data-selected'))
+					if($(this).attr('data-selected') == 'true') {
+						selected.push($(this));
+					} else {
+						selected.shift($(this));
+					};
+					console.log(selected)
+					if($('.dangfei-list-item').length == selected.length) {
+						$('.icon-all').children('img').attr('src', 'static/images/icon/icon_all2.png');
+					} else {
+						$('.icon-all').children('img').attr('src', 'static/images/icon/icon_all1.png');
+
+					}
+				})
+
+			})
+		</script>
+	</body>
+
+</html>
