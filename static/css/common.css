@@ -84,6 +84,56 @@ img {
 	margin-bottom: 4.583333rem;
 }
 
+/*bindmsg.html*/
+.select-item {
+	height:4.958333rem;
+	line-height: 5rem;
+	font-size: 1.25rem;
+	color: #333;
+	border-bottom: 0.041666rem solid #E0E0E2;
+	position: relative;
+}
+.select-right:after {
+	content: '';
+	display: block;
+	width:0.666666rem;
+	height:1.333333rem;
+	background: url(../images/icon/icon_selectlist.png);
+	background-size:100% 100%;
+	
+	position: absolute;
+	top:1.833333rem;
+	right:0;
+}
+.select-item input {
+	width:100%;
+	height:2.5rem;
+	line-height: 2.5rem;
+	font-size: 1.25rem;
+	color: #333;
+	border:none;
+}
+.footer-confirm-btn {
+	width:100%;
+	height:4.958333rem;
+	border-top: 0.041666rem solid #E0E0E0;
+	position: fixed;
+	bottom:0;
+}
+
+.footer-confirm-btn a {
+	display: block;
+	width:26.25rem;
+	height:3.333333rem;
+	margin: 0.833333rem auto;
+	border-radius: 1.666666rem;
+	text-align: center;
+	line-height: 3.333333rem;
+	background: #B2DFFF;
+	color: #fff;
+	font-size: 1.333333rem;
+}
+
 .section {
 	padding:1rem 1.041666rem;
 	background:#fff;
