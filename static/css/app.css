@@ -10,7 +10,9 @@ a { text-decoration: none; color: #000; }
 body {position: relative; margin: 0 auto; height: 100%; font-size: 1rem; font-family: PingFang-SC-Regular, -apple-system,Helvetica,sans-serif; line-height: 1.5; color: #000; -webkit-text-size-adjust: 100% !important; text-size-adjust: 100% !important; }
 input[type="text"], textarea { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
 h1,h2,h3 {font-weight: normal;}
-
+body {
+	background: #fff;
+}
 .fl {
 	float:left;
 }
@@ -102,7 +104,7 @@ img {
 .index-top .position img{
 	width:0.875rem;
 	height:1.083333rem;
-	margin-top: 1.041666rem;
+	margin-top: 0.85rem;
 }
 .index-top .user {
 	font-size: 0.916666rem;
@@ -110,7 +112,7 @@ img {
 .index-top .user img {
 	width:1.25rem;
 	height:1.25rem;
-	margin-top: 0.958333rem;
+	margin-top: 0.8rem;
 }
 
 /*首页banner轮播*/
@@ -284,7 +286,7 @@ img {
 	border-radius:0.833333rem 0.833333rem 0 0 ;
 }
 .index-news-item h2 {
-	height:2.75rem;
+	height:2.5rem;
 	display: -webkit-box;    
 	-webkit-box-orient: vertical;    
 	-webkit-line-clamp: 2;    

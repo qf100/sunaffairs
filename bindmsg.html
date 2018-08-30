@@ -5,10 +5,10 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>居民信息绑定</title>
-		<link rel="stylesheet" type="text/css" href="static/css/hui.css"/>
 		<link rel="stylesheet" type="text/css" href="static/css/app.css"/>
+		<link rel="stylesheet" type="text/css" href="static/css/hui.css"/>
 	</head>
-	<body>
+	<body class="bg-fff">
 		<div class="container">
 			<div class="select-item select-radio">
 				<p class="fl">户籍是否属于本街道</p>
@@ -25,13 +25,13 @@
 				</p>
 			</div>
 			
-			<div class="select-item select-right" id="btn2">
+			<div class="select-item select-right" id="picker1">
 				<p>请选择省/市/区</p>
 			</div>
-			<div class="select-item select-right">
+			<div class="select-item select-right" id="picker2">
 				<p>请选择街道/乡/镇</p>
 			</div>
-			<div class="select-item select-right">
+			<div class="select-item select-right" id="picker3">
 				<p>请选择社区（村委/社区+村委）</p>
 			</div>
 			<div class="select-item">
@@ -40,17 +40,12 @@
 		</div>
 		
 		<div class="footer-confirm-btn">
-			<a href="">确定</a>
+			<a href="javascript:;" class="confirm-btn">确定</a>
 		</div>
 		
-		<!--<div class="mask"></div>
-		<div class="select-wrap">
-			<div class="select-wrap-control">
-				<a href="javascript:;" class="fl">取消</a>
-				<a href="javascript:;" class="fr">确定</a>
-			</div>
-		</div>-->
+
 		
+
 		<script src="static/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="static/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="static/js/hui.js" type="text/javascript" charset="utf-8"></script>
@@ -75,16 +70,38 @@
 			
 			
 			/* 地区选择， 关联型数据 */
-			var picker2 = new huiPicker('#btn2', function(){
-			    var sheng   = picker2.getText(0);
-			    var shi     = picker2.getText(1);
-			    var qu      = picker2.getText(2);
+			var picker1 = new huiPicker('#picker1', function(){
+			    var sheng   = picker1.getText(0);
+			    var shi     = picker1.getText(1);
+			    var qu      = picker1.getText(2);
 			    console.log(sheng + shi + qu)
-			    hui('#btn2').html(sheng + shi + qu);
+			    hui('#picker1').html(sheng + shi + qu);
 			});
-			picker2.level = 3;
+			picker1.level = 3;
 			//cities 数据来源于 cities.js
-			picker2.bindRelevanceData(cities);
+			picker1.bindData(cities);
+			
+			/*街道 乡 镇*/
+			var picker2 = new huiPicker('#picker2', function(){
+			    var val = picker2.getVal(0);
+			    var txt = picker2.getText(0);
+			    hui('#picker2').html(txt);
+			});
+			picker2.bindData([{value:1, text:'大枝林街道'},{value:2, text:'摊子事街道'}]);
+			
+			/*社区*/
+			var picker3 = new huiPicker('#picker3', function(){
+			    var val = picker3.getVal(0);
+			    var txt = picker3.getText(0);
+			    hui('#picker3').html(txt);
+			});
+			picker3.bindData([{value:1, text:'168社区'},{value:2, text:'127社区'}]);
+			
+			
+			// 确定按钮
+			$('.confirm-btn').click(function(){
+				window.location.href="index.html"
+			})
 		</script>
 	</body>
 </html>
