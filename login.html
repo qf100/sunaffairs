@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>居民验证登录</title>
-		<link rel="stylesheet" type="text/css" href="static/css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="static/css/app.css"/>
 		<link rel="stylesheet" type="text/css" href="static/css/login.css" />
 	</head>
 	<body>
@@ -18,7 +18,7 @@
 			<div class="login-form">
 				<div class="input-group phone">
 					<img src="static/images/icon/icon_phone.png"/>
-					<input type="text" placeholder="请输入手机号码"/>
+					<input type="num" maxlength="11" placeholder="请输入手机号码"/>
 					<em class="input-clear"></em>
 					
 				</div>
@@ -27,7 +27,6 @@
 					<input type="password" placeholder="请输入验证码"/>
 					<em class="input-clear"></em>
 					<a href="javascript:;" class="fr getcode">获取验证码</a>
-					
 				</div>
 			</div>
 		
@@ -36,51 +35,86 @@
 			</div>
 		</div>
 		
-		
+		<div class="msg-dialog">
+			请输入正确的11位手机号码
+		</div>
 		
 		<script src="static/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="static/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			// 
-			$('input').focus(function(){
+			$('input').focus(function() {
 				var _this = $(this);
-				
-				$(this).next('em').show().siblings().hide();
-				$(this).next('em').bind('click',function(){
-					_this.val('');
-				})
-			})
-			$('input').change(function(){
-				$(this).next('em').show();
-			})
-//			$('input').blur(function(){
-//				$(this).next('em').hide();
-//			})
-			
-//			$('.input-group').mouseout(function(){
-//				$(this).children('em').hide();
-//			})
-
-			var time = 10;
-			var on = true;
-			$('.getcode').click(function(){
-				var timer = setInterval(function(){
-					time--;
-					$('.getcode').html(time +'S')
-				},1000) 
-				
-				
-					
-					if(time<1){
-						clearInterval(timer)
-						time = 60;
-						$(this).text('重新发送');
-						
-					}else{
-						timer;
+				// 监听input的值
+				$(this).bind('input porpertychange', function() {
+					var val = _this.val();
+					if(val != '') {
+						_this.next('em').show().bind('click', function() {
+							_this.val('');
+						});
+					} else {
+						$(this).next('em').hide();
 					}
+				});
+			})
+			
+			var on=true;
+			$('.getcode').click(function(){
+				// 判断手机号码是否有11位
+				if($('.phone input').val().length < 11){
+					$('.msg-dialog').show();
+					setTimeout(function(){
+						$('.msg-dialog').hide();
+					},1000)
+				}else{
+					if(on){
+						settime($(this))
+					}
+					
+				}
+			})
+			
+			
+			var countdown=60; 
+			
+			function settime(obj) { 
+				//console.log(countdown)
+			    if (countdown == 0) { 
+			        on = true
+		        	obj.html("获取验证码"); 
+			        countdown = 60; 
+			        return;
+			    } else { 
+			       	on = false;
+			        obj.html("重新发送(" + countdown + ")"); 
+			        countdown--; 
+			    } 
+		    	setTimeout(function() { 
+				    settime(obj) 
+				},1000) 
+			}
+			
+			// 都不为空的情况下，登录按钮可用
+			$('.password input').focus(function(){
+				var _this = this;
+				// 登录按钮
+				$(this).bind('input porpertychange', function() {
+					var val = $(_this).val();
+					if(val != '') {
+						$('.login-btn').css('background','#38ADFF');
+						$('.login-btn').click(function(){
+							// 后端登录接口
+							console.log(111)
+							window.location.href="bindmsg.html"
+						})
+					} else {
+						$('.login-btn').css('background','#B2DFFF');
+					}
+				});
 				
 			})
+			
+			
 			
 			
 		

@@ -5,27 +5,27 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>居民信息绑定</title>
-		<link rel="stylesheet" type="text/css" href="static/css/common.css"/>
-		<link rel="stylesheet" type="text/css" href="static/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="static/css/hui.css"/>
+		<link rel="stylesheet" type="text/css" href="static/css/app.css"/>
 	</head>
 	<body>
 		<div class="container">
-			<div class="select-item">
+			<div class="select-item select-radio">
 				<p class="fl">户籍是否属于本街道</p>
-				<p class="fr">
-					<span>是<em></em></span>
-					<span>否<em></em></span>
+				<p class="fr huji">
+					<span huji-value="1">是 </span>
+					<span huji-value="0">否 </span>
 				</p>
 			</div>
-			<div class="select-item">
+			<div class="select-item select-radio">
 				<p class="fl">是否是党员</p>
-				<p class="fr">
-					<span>是<em></em></span>
-					<span>否<em></em></span>
+				<p class="fr dangyuan">
+					<span dangyuan-value="1">是 </span>
+					<span dangyuan-value="0">否 </span>
 				</p>
 			</div>
 			
-			<div class="select-item select-right">
+			<div class="select-item select-right" id="btn2">
 				<p>请选择省/市/区</p>
 			</div>
 			<div class="select-item select-right">
@@ -43,12 +43,48 @@
 			<a href="">确定</a>
 		</div>
 		
+		<!--<div class="mask"></div>
+		<div class="select-wrap">
+			<div class="select-wrap-control">
+				<a href="javascript:;" class="fl">取消</a>
+				<a href="javascript:;" class="fr">确定</a>
+			</div>
+		</div>-->
+		
 		<script src="static/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="static/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="static/js/hui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="static/js/huiPicker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="static/js/cities.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			// 户籍是否属于本街道
+			var hujiVule = '';
+			$('.huji span').click(function(){
+				$(this).addClass('selected').siblings().removeClass('selected');
+				hujiVule = $(this).attr('huji-value')
+				console.log(hujiVule)
+			})
+			
+			// 是否是党员
+			var dangyuanValue = ''
+			$('.dangyuan span').click(function(){
+				$(this).addClass('selected').siblings().removeClass('selected');
+				dangyuanValue = $(this).attr('dangyuan-value')
+				console.log(dangyuanValue)
+			})
 			
 			
-		
+			/* 地区选择， 关联型数据 */
+			var picker2 = new huiPicker('#btn2', function(){
+			    var sheng   = picker2.getText(0);
+			    var shi     = picker2.getText(1);
+			    var qu      = picker2.getText(2);
+			    console.log(sheng + shi + qu)
+			    hui('#btn2').html(sheng + shi + qu);
+			});
+			picker2.level = 3;
+			//cities 数据来源于 cities.js
+			picker2.bindRelevanceData(cities);
 		</script>
 	</body>
 </html>
