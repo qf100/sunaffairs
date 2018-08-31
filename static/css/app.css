@@ -1034,7 +1034,7 @@ input::-webkit-input-placeholder {
 }
 
 .filter-btn li.active {
-	color: #FF0017;
+	color: #38ADFF;
 }
 
 .filter-condition {
@@ -1062,10 +1062,10 @@ input::-webkit-input-placeholder {
 }
 
 .filter-condition-item li.active {
-	border-left: .3rem solid #FF0017;
+	border-left: .3rem solid #38ADFF;
 	background: #FBFBFB;
 	padding-left: 1rem;
-	color: #FF0017
+	color: #38ADFF;;
 }
 
 .service-list {

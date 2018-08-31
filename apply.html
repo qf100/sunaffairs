@@ -39,11 +39,35 @@
 			<a href="javascript:;" class="bg38a">在线提交</a>
 		</div>
 		
+		<!--弹窗提示-->
+		<div class="dialog dialog-fail">
+			<img src="static/images/icon/icon_fail.png"/>
+			<span>提交失败</span>
+		</div>
+		
+		<div class="dialog dialog-success">
+			<img src="static/images/icon/icon_success.png"/>
+			<span>提交成功</span>
+		</div>
 		
 		<script src="static/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="static/js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			
+			$('.footer-btn').click(function(){
+				// 提交成功
+				$('.dialog-success').show();
+				setTimeout(function(){
+					window.location.href="online.html"
+					$('.dialog-success').hide();
+				},2000)
+				
+				// 提交失败
+				//$('.dialog-fail').show();
+				//setTimeout(function(){
+				//	$('.dialog-fail').hide();
+				//},2000)
+				
+			})
 			
 		
 		</script>

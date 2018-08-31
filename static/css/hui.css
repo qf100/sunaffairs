@@ -271,7 +271,7 @@ h2{font-size:16px;}
 .HUI_ArrowDown{border:10px solid transparent; margin-left:8px; width:0px; height:0px; border-top-color: #FFFFFF;}
 #HUI_PopoverMsgText{background:#FFFFFF; padding:8px; line-height:1.8em; border-radius:3px; text-align:left;}
 /* picker */
-.HUI_Picker{position:fixed; z-index:2; background:#DDDDDD; height:238px; left:0px; bottom:0px; width:100%; display:none;}
+.HUI_Picker{position:fixed; z-index:9999; background:#DDDDDD; height:238px; left:0px; bottom:0px; width:100%; display:none;}
 .HUI_PickerMenu{height:29px; border-bottom:1px solid #CCCCCC; padding:8px; background:#EEEEEE;}
 .HUI_PickerListIn{width:100%;}
 .HUI_PickerList{width:100%; float:left; height:192px; overflow-y:scroll;}
