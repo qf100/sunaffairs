@@ -16,8 +16,11 @@
 					大竹林街道
 				</div>
 				<div class="fr user">
-					<img src="static/images/icon/icon_avatar.png"/>
-					Moon
+					<a href="personmsg.html">
+						
+						<img src="static/images/icon/icon_avatar.png"/>
+						Moon
+					</a>
 				</div>
 			</div>
 			
@@ -102,24 +105,24 @@
 			
 			<div class="index-section">
 				<div class="index-section-head">
-					<h2 class="fl">讲习所</h2>
-					<a href="" class="fr">更多</a>
+					<h2 class="fl">专题学习</h2>
+					<a href="study.html" class="fr">更多<i></i></a>
 				</div>
 				<div class="index-section-content clearfix">
 					<div class="jxs-item">
-						<a href="">
+						<a href="studydetails.html">
 							<img src="static/images/demo/banner2.png" alt="" />
 							<h2>着力推进新或疆社会金本次健身房社会会社会社会会社会</h2>
 						</a>
 					</div>
 					<div class="jxs-item">
-						<a href="">
+						<a href="studydetails.html">
 							<img src="static/images/demo/banner2.png" alt="" />
 							<h2>着次健身房社会会社会社会会社会</h2>
 						</a>
 					</div>
 					<div class="jxs-item">
-						<a href="">
+						<a href="studydetails.html">
 							<img src="static/images/demo/banner2.png" alt="" />
 							<h2>着力推进新或疆社会金本次健身房社会会社会社会会社会</h2>
 						</a>
@@ -131,40 +134,39 @@
 				
 				<div class="index-section-head">
 					<h2 class="fl">新闻资讯</h2>
-					<a href="news.html" class="fr">更多</a>
+					<a href="news.html" class="fr">更多<i></i></a>
 				</div>
 				<div class="index-section-content clearfix">
 					<div class="index-news-item">
 						<a href="details.html">
 							<img src="static/images/demo/banner2.png" alt="" />
 							<h2>着力推进新或疆社会金本次健身房社会会社会社会会社会</h2>
-							<p>3天前</p>
+							<p>3天前 <i></i></p>
 						</a>
 					</div>
 					<div class="index-news-item">
 						<a href="details.html">
 							<img src="static/images/demo/banner2.png" alt="" />
 							<h2>着力推进新疆社会社会会社会社会会社会</h2>
-							<p>3天前</p>
+							<p>3天前 <i></i></p>
 						</a>
 					</div>
 					<div class="index-news-item">
 						<a href="details.html">
 							<img src="static/images/demo/banner2.png" alt="" />
 							<h2>着力推进新或疆社会金本次健身房社会会社会社会会社会</h2>
-							<p>3天前</p>
+							<p>3天前 <i></i></p>
 						</a>
 					</div>
 					<div class="index-news-item">
 						<a href="details.html">
 							<img src="static/images/demo/banner2.png" alt="" />
 							<h2>着力推进新疆社会社会会社会社会会社会</h2>
-							<p>3天前</p>
+							<p>3天前 <i></i></p>
 						</a>
 					</div>
 				</div>
 			</div>
-			
 		</div>
 		
 		
@@ -184,7 +186,7 @@
 			// 通知上下轮播
 			var index = 0
 			var timer = setInterval(function(){
-				$('.notices-list').css('transform','translateY(' + 5* (-index) + 'rem)');
+				$('.notices-list').css('transform','translateY(' + 4* (-index) + 'rem)');
 				index++;
 				if(index >= $('.notices-list a').length/2 ){
 					index = 0;

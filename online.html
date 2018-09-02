@@ -1,64 +1,71 @@
 <!doctype html>
 <html class="no-js">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>在线服务</title>
-		<link rel="stylesheet" type="text/css" href="static/css/app.css" />
-	</head>
-
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>在线服务</title>
+	<link rel="stylesheet" type="text/css" href="static/css/app.css" />
+</head>
 	<body>
-		
-		<div class="top-search">
-			<div class="search-wrap">
-				<input type="text" placeholder="搜索您要办理的事项" />
-				<img src="static/images/icon/icon_search.png" alt="" />
+		<div class="fixed-header">
+			<div class="top-search">
+				<div class="search-wrap">
+					<input type="text" placeholder="搜索您要办理的事项" />
+					<img src="static/images/icon/icon_search.png" alt="" />
+				</div>
+				<a href="javascript:;" class="search-btn">搜索</a>
 			</div>
-			<a href="javascript:;" class="search-btn">搜索</a>
+
+			<ul class="filter-btn">
+				<li id="region">
+					<span>区域</span>
+					<em><img src="static/images/icon/icon_down.png"/></em>
+				</li>
+				<li class="item">
+					<span>部门</span>
+					<em><img src="static/images/icon/icon_down.png"/></em>
+				</li>
+				<li class="item">
+					<span>事项类别</span>
+					<em><img src="static/images/icon/icon_down.png"/></em>
+				</li>
+			</ul>
 		</div>
-		
 		
 		<!--筛选条件-->
 		<div class="mask"></div>
-		<div class="filter clearfix">
-			<ul class="filter-btn">
-				<li>
-					<span id="region">区域</span>
-					<em>
-						<img src="static/images/icon/icon_down.png"/>
-					</em>
-				</li>
-				<li>
-					<span>部门</span>
-					<em>
-						<img src="static/images/icon/icon_down.png"/>
-					</em>
-				</li>
-				<li>
-					<span>事项类别</span>
-					<em>
-						<img src="static/images/icon/icon_down.png"/>
-					</em>
-				</li>
+		<div class="filter-condition">
+			<div class="region-wrap">
+				<div class="region-filter">
+					<span>区级</span>
+					<span>街道</span>
+					<span>社区</span>
+				</div>
+				<div class="region-list">
+					<ul class="quji">
+						<!--<li>AAA区</li>-->
+					</ul>
+					<ul class="jiedao">
+						<!--<li>天山街道</li>-->
+					</ul>
+					<ul class="shequ">
+						<!--<li>紫竹社区</li>-->
+					</ul>
+				</div>
 				
-			</ul>
-
-			<div class="filter-condition">
-				<ul class="filter-condition-item" id="years">
-					<li data-value="0" data-type="区域" class="active">全部</li>
-				</ul>
-				<ul class="filter-condition-item" id="department">
-					<li data-value="0" data-type="部门" class="active">全部</li>
-				</ul>
-				<ul class="filter-condition-item">
-					<li data-value="0" data-type="事项类别" class="active">全部</li>
-					<li data-value="1">行政许可</li>
-					<li data-value="2">公共服务</li>
-					<li data-value="2">便民服务</li>
-				</ul>
 			</div>
+			<ul class="filter-condition-item" id="department">
+				<li data-value="0" data-type="部门" class="active">全部</li>
+			</ul>
+			<ul class="filter-condition-item">
+				<li data-value="0" data-type="事项类别" class="active">全部</li>
+				<li data-value="1">行政许可</li>
+				<li data-value="2">公共服务</li>
+				<li data-value="3">便民服务</li>
+			</ul>
 		</div>
+		
 
 		<div class="service-list">
 			<div class="service-item">
@@ -97,14 +104,89 @@
 		<script src="static/js/cities.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			// 筛选条件
-			// 最近五年
-			var year = new Date().getFullYear();
-			var yearsStr = '';
-			for(var i=1;i<=5;i++){
-				yearsStr += '<li data-value="'+i+'">'+year+'年</li>'
-				year--;
+			
+			$('.filter-btn #region').click(function() {
+				$('.filter-condition-item').slideUp('fast');
+				var on = true;
+				console.log(on)
+				console.log($(this))
+				var that = $(this).children('em');
+				$(this).addClass('active').siblings().removeClass('active');
+				
+				that.children('img').attr('src','static/images/icon/icon_up.png');
+				that.parents().siblings().children('em').children('img').attr('src','static/images/icon/icon_down.png');
+				
+				if(on) {
+					$('.mask').show();
+					$('.filter-condition').slideDown('fast');
+					$('.region-wrap').slideDown('fast');
+					//$('.filter-condition-item').eq(index).slideDown('fast').siblings().slideUp('fast');
+				} else {
+					$('.mask').hide();
+					$('.filter-condition').slideUp('fast');
+					$('.region-wrap').slideUp('fast');
+				}
+				on = !on;
+				
+			})
+			
+			
+			// 区域选择  注意：数据为模拟数据
+			var qujiStr = '';
+			//console.log(cities)
+			for(var i=0;i<cities.length;i++){
+				//console.log(cities[i].text)
+				qujiStr += '<li data-index="'+i+'">'+cities[i].text+'</li>';
 			}
-			$('#years').append(yearsStr);
+			$('.quji').html(qujiStr);
+			
+			// 区级选择
+			$('.quji li').bind('click',function(){
+				$('.region-filter span').eq(0).addClass('active').siblings().removeClass('active');
+				var jiedaoStr = '';
+				$(this).addClass('active').siblings().removeClass('active');
+				//console.log($(this).text())
+				var currentIndex = $(this).attr('data-index');
+				//console.log(cities[currentIndex]);
+				var currentChildren = cities[currentIndex].children;
+				console.log(currentChildren);
+				for(var i=0;i<currentChildren.length;i++){
+					jiedaoStr += '<li data-index="'+i+'">'+currentChildren[i].text+'</li>';
+				}
+				$('.jiedao').html(jiedaoStr);
+				
+				// 街道选择
+				$('.jiedao li').bind('click',function(){
+					$('.region-filter span').eq(1).addClass('active').siblings().removeClass('active');
+					
+					$(this).addClass('active').siblings().removeClass('active');
+					var shequStr = '';
+					var currentIndex = $(this).attr('data-index');
+					console.log(currentChildren[currentIndex]);
+					var currentChildren2 = currentChildren[currentIndex].children;
+					console.log(currentChildren2);
+					for(var i=0;i<currentChildren2.length;i++){
+						shequStr += '<li data-index="'+i+'">'+currentChildren2[i].text+'</li>';
+					}
+					console.log(shequStr)
+					$('.shequ').html(shequStr);
+					
+					// 社区选择
+					$('.shequ li').bind('click',function(){
+						$('.region-filter span').eq(2).addClass('active').siblings().removeClass('active');
+						
+						$(this).addClass('active').siblings().removeClass('active');
+						console.log($(this).html());
+						$('#region span').text($(this).html())
+						$('.mask').hide();
+						$('.filter-condition').slideUp('fast');
+					});
+				});
+				
+				
+			})
+
+			
 			
 			// 部门
 			var department = ['财务部','技术部','行政部','综合部'];
@@ -117,11 +199,12 @@
 			
 			
 			var index = 0;
-			$('.filter-btn li').each(function() {
+			$('.filter-btn .item').each(function() {
 				var on = true;
 				$(this).on('click', function() {
 					var that = $(this).children('em');
 					index = $(this).index();
+					console.log(index)
 					$(this).addClass('active').siblings().removeClass('active');
 					
 					that.children('img').attr('src','static/images/icon/icon_up.png');
@@ -130,7 +213,7 @@
 					if(on) {
 						$('.mask').show();
 						$('.filter-condition').slideDown('fast');
-						$('.filter-condition-item').eq(index).slideDown('fast').siblings().slideUp('fast');
+						$('.filter-condition-item').eq(index-1).slideDown('fast').siblings().slideUp('fast');
 					} else {
 						$('.mask').hide();
 						$('.filter-condition').slideUp('fast');
@@ -152,12 +235,15 @@
 						$('.filter-btn li').eq(index).children('span').text($(this).attr('data-type'))
 					}
 					$('.mask').hide();
+					$('.filter-condition-item').slideUp('fast');
 				})
 			})
 
 			$('.mask').bind('click', function() {
 				$(this).hide();
 				$('.filter-condition-item').slideUp('fast');
+				$('.filter-condition').slideUp('fast');
+				$('.region-wrap').slideUp('fast');
 			})
 
 

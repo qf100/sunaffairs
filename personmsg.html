@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>居民信息绑定</title>
+		<title>个人信息</title>
 		<link rel="stylesheet" type="text/css" href="static/css/app.css"/>
 		<link rel="stylesheet" type="text/css" href="static/css/hui.css"/>
 	</head>
@@ -48,7 +48,7 @@
 		</div>
 		
 		<div class="footer-confirm-btn">
-			<a href="javascript:;" class="confirm-btn">确定</a>
+			<a href="javascript:;" class="confirm-btn">确定修改</a>
 		</div>
 		
 
@@ -72,7 +72,6 @@
 			var dangyuanValue = ''
 			$('.dangyuan span').click(function(){
 				$(this).children('i').addClass('selected').parents().siblings().children('i').removeClass('selected');
-				
 				dangyuanValue = $(this).attr('dangyuan-value')
 				console.log(dangyuanValue)
 			})

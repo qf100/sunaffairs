@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>学习详情</title>
+		<link rel="stylesheet" type="text/css" href="static/css/app.css" />
+	</head>
+
+	<body>
+		<div class="details-title">
+			<h1>李传荣 2014、2015年度优秀党员地位if维空间发挥你胃口就服你玩的了附件为</h1>
+			<p>
+				<span class="fl">2017-04-04 10:34:23</span>
+				<span class="fr">
+					<img src="static/images/icon/icon_browse.png" alt="" />
+					<em class="browsenum">1121</em>
+				</span>
+			</p>
+		</div>
+		
+		<div class="details-content">
+			<img src="static/images/demo/banner2.png"/>
+			2017年10月31日至11月5日，凭祥市原市政协主席、市关工委主任苏文、市委组织部副长老干部局局长古凡庆带领离退休干部一行2人到安州资源、胜柳城参观考察农业建设产业发展情况，重走红军路，体验祖国新变化、畅谈十九大。
+
+凭祥市离退休老干部一行参观考察了兴安马头山新农村建设示范点、湘江战役纪念碑园，全州县柑橘标准化示范基地、解放纪念碑园，资源龙溪红军井、渡船铺，龙胜红军岩、张家苗寨、瓢里镇新农村建设，柳城知青城。每到一处，观看革命先烈的遗物、图文资料、行军路线图及听取宣讲人的讲解，了解当
+
+		</div>
+		
+		<div class="btn-group">
+			<a href="javascript:;" class="confirm-study-btn select">确认学习</a>
+			<a href="javascript:;" class="confirm-study-btn selected">您已学习</a>
+		</div>
+		
+		<div class="footer-page">
+			<p>上一篇：<a href="">哈哈哈哈啊哈哈哈</a></p>
+			<p>下一篇：<a href="">黑恶黑恶hi诶嘿嘿额和hi</a></p>
+			
+		</div>
+			
+		</div>
+		
+		<!--弹窗提示-->
+		<div class="dialog dialog-fail">
+			<img src="static/images/icon/icon_fail.png"/>
+			<span>学习失败</span>
+		</div>
+		
+		<div class="dialog dialog-success">
+			<img src="static/images/icon/icon_success.png"/>
+			<span>学习成功</span>
+		</div>
+		
+		<script src="static/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="static/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 确认学习
+			$('.select').click(function(){
+				$(this).hide().siblings().css('display','block');
+				// 学习成功
+				$('.dialog-success').show();
+				setTimeout(function(){
+					$('.dialog-success').hide();
+				},2000)
+				
+				// 学习失败
+				//$('.dialog-fail').show();
+				//setTimeout(function(){
+				//	$('.dialog-fail').hide();
+				//},2000)
+			})
+		</script>
+	</body>
+</html>
