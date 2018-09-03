@@ -52,7 +52,9 @@
 		</div>
 		
 
-		
+		<div class="msg-dialog">
+			请完善相关信息！
+		</div>
 
 		<script src="static/js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="static/js/common.js" type="text/javascript" charset="utf-8"></script>
@@ -60,12 +62,16 @@
 		<script src="static/js/huiPicker.js" type="text/javascript" charset="utf-8"></script>
 		<script src="static/js/cities.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			var on1 = on2 = on3 = false;
 			// 户籍是否属于本街道
 			var hujiVule = '';
 			$('.huji span').click(function(){
 				$(this).children('i').addClass('selected').parents().siblings().children('i').removeClass('selected');
 				hujiVule = $(this).attr('huji-value')
 				console.log(hujiVule)
+				if(hujiVule==1){
+					$('.confirm-btn').removeClass('on');
+				}
 			})
 			
 			// 是否是党员
@@ -75,6 +81,9 @@
 				
 				dangyuanValue = $(this).attr('dangyuan-value')
 				console.log(dangyuanValue)
+				if(hujiVule == 0){
+					$('.confirm-btn').addClass('on');
+				}
 			})
 			
 			
@@ -85,7 +94,7 @@
 			    var qu      = picker1.getText(2);
 			    console.log(sheng + shi + qu)
 			    hui('#picker1').html(sheng + shi + qu);
-			   
+			    on1 = true;
 			});
 			picker1.level = 3;
 			//cities 数据来源于 cities.js
@@ -96,6 +105,7 @@
 			    var val = picker2.getVal(0);
 			    var txt = picker2.getText(0);
 			    hui('#picker2').html(txt);
+			    on2 = true;
 			});
 			picker2.bindData([{value:1, text:'大枝林街道'},{value:2, text:'摊子事街道'}]);
 			
@@ -104,13 +114,27 @@
 			    var val = picker3.getVal(0);
 			    var txt = picker3.getText(0);
 			    hui('#picker3').html(txt);
+			    on3 = true;
+			    
+			    if(on1 & on2 & on3){
+					$('.confirm-btn').addClass('on');
+				}
 			});
 			picker3.bindData([{value:1, text:'168社区'},{value:2, text:'127社区'}]);
 			
 			
 			// 确定按钮
 			$('.confirm-btn').click(function(){
-				window.location.href="index.html"
+				if($(this).hasClass('on')){
+					//数据保存成功后跳转
+					window.location.href="index.html"
+				}else{
+					$('.msg-dialog').show();
+					setTimeout(function(){
+						$('.msg-dialog').hide();
+					},1000)
+				}
+				
 			})
 		</script>
 	</body>

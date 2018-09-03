@@ -59,6 +59,10 @@ img {
 	width:100%;
 	height:100%;
 }
+
+.on {
+	background:#38ADFF!important;
+}
 .line {
 	width:100%;
 	border-bottom: 0.041666rem solid #D8DBE5;
@@ -86,7 +90,24 @@ img {
 	margin: 0.666666rem 1.25rem;
 	margin-bottom: 4.583333rem;
 }
-
+.msg-dialog {
+	width:14rem;
+	height:2.5rem;
+	padding: .5rem;
+	text-align: center;
+	border-radius: 0.416666rem;
+	line-height: 2rem;
+	font-size: 1rem;
+	background: rgba(0,0,0,0.5);
+	color: #fff;
+	position: fixed;
+	top:50%;
+	left:50%;
+	margin-top: -1.75rem;
+	margin-left: -7rem;
+	display: none;
+	transition: all .5s;
+}
 /*
  * index.html
  */
@@ -415,9 +436,11 @@ img {
 .footer-confirm-btn {
 	width:100%;
 	height:4.958333rem;
+	background: #fff;
 	border-top: 0.041666rem solid #E0E0E0;
 	position: fixed;
 	bottom:0;
+	z-index: 100;
 }
 
 .footer-confirm-btn a {
