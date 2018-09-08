@@ -892,6 +892,7 @@ input::-webkit-input-placeholder {
 	line-height: 2rem;
 	font-size: 1.166666rem;
 	color: #666;
+	overflow: hidden;
 }
 .section-bottom {
 	height:3.333333rem;

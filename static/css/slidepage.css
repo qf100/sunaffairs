@@ -13,22 +13,21 @@
 	font-size: 1.25rem;
 	color: #999;
 }
-
-#nav .bar {
+#nav .swiper-slide {
+	position: relative;
+}
+#nav .active:after {
+	content: '';
 	width: 1.166666rem;
 	height: 0.25rem;
 	border-radius: 0.125rem;
 	position: absolute;
 	bottom: 0px;
-}
-
-#nav .bar .color {
-	width: 1.166666rem;
-	margin: 0 auto;
-	height: 0.25rem;
-	border-radius: 0.125rem;
+	left:50%;
+	margin-left: -0.583333rem;
 	background: #38ADFF;
 }
+
 
 .banner img {
 	width: 100%;

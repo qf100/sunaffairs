@@ -22,14 +22,10 @@
 
 			<div class="swiper-container" id="nav">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide"><span style="color:#38ADFF;">全部</span></div>
+					<div class="swiper-slide active"><span style="color:#38ADFF;">全部</span></div>
 					<div class="swiper-slide"><span>国家政策</span></div>
 					<div class="swiper-slide"><span>贵州政策</span></div>
 					<div class="swiper-slide"><span>盘州政策</span></div>
-
-					<div class="bar">
-						<div class="color"></div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -221,6 +217,16 @@
 					$('.empty').hide();
 				}
 			});
+			
+			 navSwiper.on('tap', function(e) {
+                clickIndex = this.clickedIndex
+                clickSlide = this.slides.eq(clickIndex)
+              
+                $(clickSlide).addClass('active').siblings().removeClass('active');
+                
+//              var ac_id = clickSlide.data('acid');
+//              window.location.href="/dangjian_news/yaowen?ac_id="+ac_id;
+            });
 		</script>
 	</body>
 
